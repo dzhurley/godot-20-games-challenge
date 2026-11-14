@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://3x40o261fr8f"]
+
+[ext_resource type="FontFile" uid="uid://ciixkc6lndo0n" path="res://assets/InconsolataNerdFontMono-Bold.ttf" id="1_tf8oi"]
+
+[resource]
+default_font = ExtResource("1_tf8oi")
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)

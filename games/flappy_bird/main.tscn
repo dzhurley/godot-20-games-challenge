@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cweg5bwlxpbco"]
+
+[ext_resource type="PackedScene" uid="uid://0sw16t57fb0g" path="res://games/flappy_bird/ui.tscn" id="1_cx00p"]
+[ext_resource type="PackedScene" uid="uid://kq07017lih7j" path="res://games/flappy_bird/level.tscn" id="1_rg3bl"]
+[ext_resource type="Script" uid="uid://cfsmxpy1dt64q" path="res://games/flappy_bird/main.gd" id="1_uiued"]
+
+[node name="Node" type="Node" unique_id=283498475]
+script = ExtResource("1_uiued")
+
+[node name="Level" parent="." unique_id=1593447976 instance=ExtResource("1_rg3bl")]
+
+[node name="UI" parent="." unique_id=500401569 instance=ExtResource("1_cx00p")]
+
+[connection signal="game_over" from="Level" to="." method="_on_level_game_over"]
+[connection signal="update_countdown" from="Level" to="UI" method="_on_level_update_countdown"]
+[connection signal="update_score" from="Level" to="UI" method="_on_level_update_score"]
+[connection signal="start" from="UI" to="." method="_on_ui_start"]

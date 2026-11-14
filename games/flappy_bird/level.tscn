@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://kq07017lih7j"]
+
+[ext_resource type="Script" uid="uid://bqvvegcdfw6vn" path="res://games/flappy_bird/level.gd" id="1_q4w2c"]
+[ext_resource type="PackedScene" uid="uid://dx3airlgnrwef" path="res://games/flappy_bird/player.tscn" id="2_q3r77"]
+
+[node name="Level" type="Node2D" unique_id=1593447976]
+script = ExtResource("1_q4w2c")
+
+[node name="Control" type="Control" parent="." unique_id=1306585232]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1220656808]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27058825, 0.5686275, 0.92156863, 1)
+
+[node name="Player" parent="." unique_id=1895411149 instance=ExtResource("2_q3r77")]
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=363424561]
+wait_time = 3.0
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1113915829]
+
+[connection signal="off_screened" from="Player" to="." method="_on_death"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

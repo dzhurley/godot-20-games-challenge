@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# assetlib installs
+addons/
+
+# build
+twenty_games_challenge.sh
+twenty_games_challenge.x86_64

@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://0sw16t57fb0g"]
+
+[ext_resource type="Script" uid="uid://dg5d84l3cdeo4" path="res://games/flappy_bird/ui.gd" id="1_udobg"]
+
+[node name="UI" type="CanvasLayer" unique_id=981931134]
+script = ExtResource("1_udobg")
+
+[node name="MainMenu" type="Control" parent="." unique_id=563892276]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1556263699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26995108, 0.566751, 0.9202609, 1)
+
+[node name="Title" type="Label" parent="MainMenu" unique_id=1842797260]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -77.0
+offset_right = 158.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 58
+text = "Flappy Bird"
+
+[node name="Play" type="Button" parent="MainMenu" unique_id=1712563970]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = 48.5
+offset_right = -79.5
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Main Menu" type="Button" parent="MainMenu" unique_id=258779843]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 48.5
+offset_right = 156.5
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Play")
+focus_previous = NodePath("../Play")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="GameOver" type="Control" parent="." unique_id=28388126]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=2060340770]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 371.0
+offset_top = 225.0
+offset_right = -371.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23529412)
+
+[node name="Title" type="Label" parent="GameOver" unique_id=1793629037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -77.0
+offset_right = 158.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 58
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="GameOver" unique_id=1548210282]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 49.0
+offset_right = -19.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="Back" type="Button" parent="GameOver" unique_id=830017227]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 49.0
+offset_right = 142.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Score" type="Label" parent="." unique_id=673144472]
+visible = false
+offset_left = 10.0
+offset_right = 43.0
+offset_bottom = 79.0
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 58
+text = "0"
+
+[node name="Countdown" type="Label" parent="." unique_id=972801080]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -39.5
+offset_right = 16.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 58
+
+[connection signal="pressed" from="MainMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameOver/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOver/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dx3airlgnrwef"]
+
+[ext_resource type="Texture2D" uid="uid://gjuvggm23r7j" path="res://games/flappy_bird/assets/bird_0001.png" id="1_lw627"]
+[ext_resource type="Script" uid="uid://dtriqbjas4qye" path="res://games/flappy_bird/player.gd" id="1_wuhxn"]
+[ext_resource type="Texture2D" uid="uid://bwalkpqx4dffx" path="res://games/flappy_bird/assets/bird_0002.png" id="2_wuhxn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrjjj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lw627")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wuhxn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lw627"]
+radius = 17.2
+height = 68.43
+
+[node name="Player" type="CharacterBody2D" unique_id=1895411149]
+script = ExtResource("1_wuhxn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1973248601]
+sprite_frames = SubResource("SpriteFrames_wrjjj")
+frame = 1
+frame_progress = 0.60788924
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32114944]
+position = Vector2(-2, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lw627")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1526531243]
+rect = Rect2(-31, -22, 62, 44)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

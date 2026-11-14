@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://di25i7qdjtsua"]
+
+[ext_resource type="Script" uid="uid://dln4lu8wbty0q" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://bfkp7fvmqbxw" path="res://assets/bg-low.png" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://datbwwt76csn0" path="res://assets/bg-high.png" id="3_fu7sn"]
+[ext_resource type="Theme" uid="uid://3x40o261fr8f" path="res://assets/menu_theme.tres" id="4_jix8l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fu7sn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7vrkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7vrkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7vrkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fu7sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7vrkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fu7sn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.46238142, 0.46880877, 0.7463774, 1)
+expand_margin_left = 32.0
+expand_margin_top = 32.0
+expand_margin_right = 32.0
+expand_margin_bottom = 32.0
+
+[node name="MainMenu" type="CanvasLayer" unique_id=893978736]
+script = ExtResource("1_06t4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=583177308]
+sprite_frames = SubResource("SpriteFrames_fu7sn")
+autoplay = "default"
+frame = 1
+frame_progress = 0.83055985
+centered = false
+
+[node name="BaseMenu" type="Control" parent="." unique_id=27860114]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BaseMenu" unique_id=1866072322]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 536.0
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="FlowContainer" type="VFlowContainer" parent="BaseMenu/MarginContainer" unique_id=90366836]
+layout_mode = 2
+theme_override_constants/v_separation = 32
+alignment = 1
+
+[node name="Title" type="Label" parent="BaseMenu/MarginContainer/FlowContainer" unique_id=1357521792]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_jix8l")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 58
+text = "Twenty Games
+Challenge"
+
+[node name="SelectGame" type="Button" parent="BaseMenu/MarginContainer/FlowContainer" unique_id=280780069]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+theme = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 32
+text = "Select Game"
+
+[node name="Quit" type="Button" parent="BaseMenu/MarginContainer/FlowContainer" unique_id=1718565229]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SelectGame")
+focus_previous = NodePath("../SelectGame")
+theme = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="SelectMenu" type="Control" parent="." unique_id=1262472012]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="SelectMenu" unique_id=1806957387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.12941177)
+
+[node name="PanelContainer" type="PanelContainer" parent="SelectMenu" unique_id=887769195]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -21.5
+offset_right = 92.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fu7sn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectMenu/PanelContainer" unique_id=54581617]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SelectMenu/PanelContainer/VBoxContainer" unique_id=1648170351]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectMenu/PanelContainer/VBoxContainer/ScrollContainer" unique_id=1938619790]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="FlappyBird" type="Button" parent="SelectMenu/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=215876133]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 32
+text = "Flappy Bird"
+
+[node name="Close" type="Button" parent="SelectMenu/PanelContainer/VBoxContainer" unique_id=67628791]
+layout_mode = 2
+theme = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[connection signal="pressed" from="BaseMenu/MarginContainer/FlowContainer/SelectGame" to="." method="_on_select_game_pressed"]
+[connection signal="pressed" from="BaseMenu/MarginContainer/FlowContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="SelectMenu/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/FlappyBird" to="." method="_on_play_game_pressed" binds= ["flappy_bird"]]
+[connection signal="pressed" from="SelectMenu/PanelContainer/VBoxContainer/Close" to="." method="_on_close_select_pressed"]

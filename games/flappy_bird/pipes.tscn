@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://uu0n2nwk8mdi"]
+
+[ext_resource type="Texture2D" uid="uid://cseel37cliqrr" path="res://games/flappy_bird/assets/pipe.png" id="1_doe0n"]
+[ext_resource type="Script" uid="uid://bxc55bbxa8kpk" path="res://games/flappy_bird/pipes.gd" id="1_i1iwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1iwa"]
+size = Vector2(60, 510)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvqt4"]
+size = Vector2(20, 134)
+
+[node name="Pipes" type="Node2D" unique_id=262886554]
+script = ExtResource("1_i1iwa")
+
+[node name="TopPipe" type="Area2D" parent="." unique_id=547708745]
+
+[node name="PipeSprite" type="Sprite2D" parent="TopPipe" unique_id=40864271]
+position = Vector2(0, -325)
+rotation = -3.1415925
+texture = ExtResource("1_doe0n")
+
+[node name="TopCollision" type="CollisionShape2D" parent="TopPipe" unique_id=666703810]
+position = Vector2(0, -325)
+shape = SubResource("RectangleShape2D_i1iwa")
+
+[node name="Gate" type="Area2D" parent="." unique_id=1656597825]
+position = Vector2(-19, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate" unique_id=600594229]
+shape = SubResource("RectangleShape2D_pvqt4")
+
+[node name="BottomPipe" type="Area2D" parent="." unique_id=161105290]
+
+[node name="PipeSprite" type="Sprite2D" parent="BottomPipe" unique_id=1149010727]
+position = Vector2(0, 325)
+texture = ExtResource("1_doe0n")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="BottomPipe" unique_id=1634965007]
+position = Vector2(0, 325)
+shape = SubResource("RectangleShape2D_i1iwa")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=610059441]
+rect = Rect2(-142, -10, 284, 20)
+
+[connection signal="body_entered" from="TopPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Gate" to="." method="_on_gate_body_entered"]
+[connection signal="body_entered" from="BottomPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_pipe_exited_screen"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dglvra17lplk5"]
+
+[ext_resource type="Script" uid="uid://t7fuo7xpae47" path="res://games/flappy_bird/cloud.gd" id="1_p28o1"]
+[ext_resource type="Texture2D" uid="uid://cslndvk2xcdcs" path="res://games/flappy_bird/assets/cloud.png" id="1_ucapj"]
+
+[node name="Node2D" type="Node2D" unique_id=306313056]
+script = ExtResource("1_p28o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1808116131]
+texture = ExtResource("1_ucapj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1590764281]
+rect = Rect2(-23, -13, 46, 26)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_cloud_exited_screen"]
