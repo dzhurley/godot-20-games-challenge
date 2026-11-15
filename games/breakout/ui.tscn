@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://ds05t2hpmtmhf"]
+
+[ext_resource type="Script" uid="uid://bq68458rt57k4" path="res://games/breakout/ui.gd" id="1_osd84"]
+[ext_resource type="Theme" uid="uid://3x40o261fr8f" path="res://assets/menu_theme.tres" id="2_osd84"]
+
+[node name="UI" type="CanvasLayer" unique_id=981931134]
+script = ExtResource("1_osd84")
+
+[node name="MainMenu" type="Control" parent="." unique_id=563892276]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=1556263699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25490198, 0, 0.29803923, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu" unique_id=2025152117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 192
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer" unique_id=704297987]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=1842797260]
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("2_osd84")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 256
+text = "BREAKOUT"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=2046460645]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1712563970]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_left = NodePath("../MainMenu")
+focus_neighbor_top = NodePath("../MainMenu")
+focus_neighbor_right = NodePath("../MainMenu")
+focus_neighbor_bottom = NodePath("../MainMenu")
+focus_next = NodePath("../MainMenu")
+focus_previous = NodePath("../MainMenu")
+theme = ExtResource("2_osd84")
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_focus_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "START!"
+
+[node name="MainMenu" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/HBoxContainer" unique_id=258779843]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../Play")
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_right = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Play")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Play")
+theme = ExtResource("2_osd84")
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_focus_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "SEE YA!"
+
+[node name="GameOver" type="Control" parent="." unique_id=28388126]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=2060340770]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 371.0
+offset_top = 225.0
+offset_right = -371.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23529412)
+
+[node name="Title" type="Label" parent="GameOver" unique_id=1793629037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -77.0
+offset_right = 158.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_osd84")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 58
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="GameOver" unique_id=1548210282]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 49.0
+offset_right = -19.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+theme = ExtResource("2_osd84")
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_focus_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="Back" type="Button" parent="GameOver" unique_id=830017227]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 49.0
+offset_right = 142.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+theme = ExtResource("2_osd84")
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_focus_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="HUD" type="MarginContainer" parent="." unique_id=894059545]
+visible = false
+offset_right = 112.0
+offset_bottom = 66.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=1011951779]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="HUD/VBoxContainer" unique_id=673144472]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_osd84")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Score: 0"
+
+[node name="Lives" type="Label" parent="HUD/VBoxContainer" unique_id=1544475986]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_osd84")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Lives: 0"
+
+[node name="Countdown" type="Label" parent="." unique_id=972801080]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -39.5
+offset_right = 16.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_osd84")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.105882354, 0.73333335, 0, 1)
+theme_override_font_sizes/font_size = 58
+
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameOver/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOver/Back" to="." method="_on_back_pressed"]

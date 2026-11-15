@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b32hdteqa6u8q"]
+
+[ext_resource type="Script" uid="uid://dm5x53p4rtjn0" path="res://games/breakout/ball.gd" id="1_b0aut"]
+[ext_resource type="Texture2D" uid="uid://dpr06stm75xkm" path="res://games/breakout/assets/ball.png" id="1_qs2m8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b0aut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmmgp"]
+radius = 27.018513
+
+[node name="Ball" type="RigidBody2D" unique_id=2043324027]
+physics_material_override = SubResource("PhysicsMaterial_b0aut")
+script = ExtResource("1_b0aut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556666047]
+shape = SubResource("CircleShape2D_jmmgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=442904725]
+texture = ExtResource("1_qs2m8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1046244510]
+rect = Rect2(-20, -19, 40, 38)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_ball_exited"]

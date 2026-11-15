@@ -153,6 +153,12 @@ theme = ExtResource("4_jix8l")
 theme_override_font_sizes/font_size = 32
 text = "Flappy Bird"
 
+[node name="Breakout" type="Button" parent="SelectMenu/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2118639670]
+layout_mode = 2
+theme = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 32
+text = "Breakout"
+
 [node name="Close" type="Button" parent="SelectMenu/PanelContainer/VBoxContainer" unique_id=67628791]
 layout_mode = 2
 theme = ExtResource("4_jix8l")
@@ -162,4 +168,5 @@ text = "Close"
 [connection signal="pressed" from="BaseMenu/MarginContainer/FlowContainer/SelectGame" to="." method="_on_select_game_pressed"]
 [connection signal="pressed" from="BaseMenu/MarginContainer/FlowContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="SelectMenu/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/FlappyBird" to="." method="_on_play_game_pressed" binds= ["flappy_bird"]]
+[connection signal="pressed" from="SelectMenu/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Breakout" to="." method="_on_play_game_pressed" binds= ["breakout"]]
 [connection signal="pressed" from="SelectMenu/PanelContainer/VBoxContainer/Close" to="." method="_on_close_select_pressed"]

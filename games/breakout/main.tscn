@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ce77r2ykvvshr"]
+
+[ext_resource type="PackedScene" uid="uid://ds05t2hpmtmhf" path="res://games/breakout/ui.tscn" id="1_7566u"]
+[ext_resource type="Script" uid="uid://doghj13lth57i" path="res://games/breakout/main.gd" id="1_uysd3"]
+[ext_resource type="PackedScene" uid="uid://djtc3m2v2jdye" path="res://games/breakout/level.tscn" id="2_jsbw2"]
+
+[node name="Node" type="Node" unique_id=474234788]
+script = ExtResource("1_uysd3")
+
+[node name="Level" parent="." unique_id=1738474710 instance=ExtResource("2_jsbw2")]
+
+[node name="UI" parent="." unique_id=981931134 instance=ExtResource("1_7566u")]
+
+[connection signal="remove_life" from="Level" to="." method="_on_level_remove_life"]
+[connection signal="update_countdown" from="Level" to="UI" method="_on_level_update_countdown"]
+[connection signal="start" from="UI" to="." method="_on_ui_start"]
