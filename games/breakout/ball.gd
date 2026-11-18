@@ -35,7 +35,9 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
-
+		var collider = collision.get_collider()
+		if collider.is_in_group('bricks'):
+			collider.destroy()
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if is_resetting:

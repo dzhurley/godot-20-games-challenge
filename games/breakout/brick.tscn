@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://y5qro7psxhx1"]
+
+[ext_resource type="Script" uid="uid://bnw8bvgc8hfhj" path="res://games/breakout/brick.gd" id="1_lg0tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2n3"]
+size = Vector2(188, 48)
+
+[node name="Brick" type="StaticBody2D" unique_id=115866986]
+script = ExtResource("1_lg0tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866042415]
+shape = SubResource("RectangleShape2D_0o2n3")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1772836076]
+scale = Vector2(1.84, 2.4444444)
+color = Color(1.686252, 0, 0.36665496, 1)
+polygon = PackedVector2Array(-50, -9, 50, -9, 50, 9, -50, 9)

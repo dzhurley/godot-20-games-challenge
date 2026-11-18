@@ -18,6 +18,7 @@ func _on_main_menu_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
+	update_score(0)
 	start.emit()
 	$MainMenu.hide()
 	$HUD.show()
@@ -25,13 +26,13 @@ func _on_play_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
+	update_score(0)
 	start.emit()
 	$Countdown.show()
 	$GameOver.hide()
 
 
 func _on_back_pressed() -> void:
-	get_node('%Score').text = "Score: %d" % 0
 	$MainMenu.show()
 	$HUD.hide()
 	$GameOver.hide()
